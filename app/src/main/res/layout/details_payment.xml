@@ -48,7 +48,10 @@
         app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.197" />
+        app:layout_constraintVertical_bias="0.197"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <EditText
         android:id="@+id/addresse"
@@ -62,7 +65,10 @@
         app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.276" />
+        app:layout_constraintVertical_bias="0.276"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <EditText
         android:id="@+id/time_delivery"
@@ -70,39 +76,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Excepted delivery time"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358" />
-
-    <RadioButton
-        android:id="@+id/MasterCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="6"
-        android:text="Master card"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.56" />
-
-    <RadioButton
-        android:id="@+id/Paypal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tag="6"
-        android:text="Paypal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.631" />
+        app:layout_constraintVertical_bias="0.358"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
 
     <TextView
         android:id="@+id/choice"
@@ -117,18 +100,37 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.476" />
 
-    <RadioButton
-        android:id="@+id/visa"
+
+    <RadioGroup
+        android:id="@+id/paymentMethodGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:tag="6"
-        android:text="Visa"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701" />
+        app:layout_constraintVertical_bias="0.647">
+
+        <RadioButton
+            android:id="@+id/MasterCard"
+            android:layout_width="153dp"
+            android:layout_height="wrap_content"
+            android:text="Master card" />
+
+        <RadioButton
+            android:id="@+id/Paypal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paypal" />
+
+        <RadioButton
+            android:id="@+id/Visa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visa" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/confirm_button"
@@ -159,5 +161,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.922"
         tools:ignore="MissingConstraints" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

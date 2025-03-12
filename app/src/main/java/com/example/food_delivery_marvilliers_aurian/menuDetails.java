@@ -3,11 +3,15 @@ package com.example.food_delivery_marvilliers_aurian;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Context;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +25,7 @@ public class menuDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_payment);
 
-        // Récupération de l'Intent et de la valeur envoyée
+        // Récupération de l'Intent et du prix total
         Intent intent = getIntent();
         double prix_total = intent.getDoubleExtra("prix_total", 0.0); // 0.0 est la valeur par défaut
 
@@ -75,13 +79,24 @@ public class menuDetails extends AppCompatActivity {
                 finish();
             }
         });
+
+        //appel de la fonction showKeyboard pour mes EditText qui sont des input
+        EditText nameInput = findViewById(R.id.nom_client);
+        EditText addresse = findViewById(R.id.addresse);
+        EditText heure_delivery = findViewById(R.id.time_delivery);
+
+        // Événement sur le clic pour afficher le clavier
+        nameInput.setOnClickListener(v -> showKeyboard(nameInput));
+        addresse.setOnClickListener(v -> showKeyboard(addresse));
+        heure_delivery.setOnClickListener(v -> showKeyboard(heure_delivery));
+
     }
 
     // Méthode pour vérifier la méthode de paiement
     public void verifyPayment() {
         //j'avais fais un tableau de ces RadioButton
         // RadioButton pour les méthodes de paiement
-        RadioButton visa = findViewById(R.id.visa);
+        RadioButton visa = findViewById(R.id.Visa);
         RadioButton mastercard = findViewById(R.id.MasterCard);
         RadioButton paypal = findViewById(R.id.Paypal);
 
@@ -113,4 +128,14 @@ public class menuDetails extends AppCompatActivity {
             }
         }
     }
+
+    //afficher le clavier, event par java, fonction trouvée sur internet
+    public void showKeyboard(EditText editText) {
+        editText.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+        }
+    }
+
 }

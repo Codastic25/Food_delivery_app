@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please select at least one meal/drink", Toast.LENGTH_SHORT).show();
         }
         else {
+            //lance la deuxieme activity "menuDetails"
             Intent intent = new Intent(MainActivity.this, menuDetails.class);
             intent.putExtra("prix_total", prix_total); // Ajouter la valeur dans l'Intent
             startActivity(intent);
