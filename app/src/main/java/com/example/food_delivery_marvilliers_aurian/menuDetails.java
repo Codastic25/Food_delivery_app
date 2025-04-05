@@ -25,7 +25,7 @@ public class menuDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.details_payment);
 
-        // Récupération de l'Intent et du prix total
+        // Récupération de l'Intent et du prix total (variable qui navigue entre mes 2 Activity)
         Intent intent = getIntent();
         double prix_total = intent.getDoubleExtra("prix_total", 0.0); // 0.0 est la valeur par défaut
 
